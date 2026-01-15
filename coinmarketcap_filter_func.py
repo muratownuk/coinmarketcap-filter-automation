@@ -38,3 +38,7 @@ def filter_startup():
     time.sleep(SLEEP_TIME_BETWEEN_PRESS)
 
     pyautogui.click(ApplyButton.x, ApplyButton.y)  
+
+
+
+
