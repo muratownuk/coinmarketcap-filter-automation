@@ -1,0 +1,1 @@
+"#coinmarketcap-filter-automation" 
