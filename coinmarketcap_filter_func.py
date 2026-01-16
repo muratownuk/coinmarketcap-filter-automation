@@ -1,9 +1,13 @@
 import pyautogui, time 
 from filter_defines import *
+from defines import * 
 
 SLEEP_TIME_BETWEEN_PRESS_FAST=0.5
 SLEEP_TIME_BETWEEN_PRESS_MID=1
 SLEEP_TIME_BETWEEN_PRESS_SLOW=2
+
+VOLUME24H=True
+Vol24hMin=FiveHundredThousand
 
 ## Functions ## 
 def filter_startup():
@@ -20,16 +24,17 @@ def filter_startup():
 
     # crypto.com is the exchange we are focused on as that is our exchange. 
     pyautogui.click(ExchangeButton.x, ExchangeButton.y)
-    pyautogui.write("cry")
+    pyautogui.write(str(exchanges["1"]))            # "1" is crypto.com 
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_FAST)
 
     pyautogui.click(CryptoComExchangeButton.x, CryptoComExchangeButton.y)
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_FAST)
 
     # filter out low 24h volume coins (rug-pull potential)
-    pyautogui.click(Volume24hMinButton.x, Volume24hMinButton.y)
-    pyautogui.write("1000000")
-    time.sleep(SLEEP_TIME_BETWEEN_PRESS_FAST)
+    if VOLUME24H:
+        pyautogui.click(Volume24hMinButton.x, Volume24hMinButton.y)
+        pyautogui.write(str(Vol24hMin))
+        time.sleep(SLEEP_TIME_BETWEEN_PRESS_FAST)
 
     pyautogui.click(ApplyButton.x, ApplyButton.y)  
 
@@ -40,4 +45,10 @@ def OneHrPrcntRefresh():
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW) 
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y) 
 
+def TwentyFourHrPrcntRefresh():
+    pyautogui.click(TwentyFourHrPrcntButton.x, TwentyFourHrPrcntButton.y)
+    time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW)
+    pyautogui.click(TwentyFourHrPrcntButton.x, TwentyFourHrPrcntButton.y)
+    time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW)
+    pyautogui.click(TwentyFourHrPrcntButton.x, TwentyFourHrPrcntButton.y)
 
