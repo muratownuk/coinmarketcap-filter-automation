@@ -1,5 +1,9 @@
 # Objects 
 
+class Browser:
+    x=1000
+    y=25
+
 class FiltersButton: 
     x=1745 
     y=320 
@@ -32,3 +36,6 @@ class ApplyButton:
     x=1200 
     y=825 
 
+class OneHrPrcntButton:
+    x=875 
+    y=375 
