@@ -3,10 +3,9 @@ from coinmarketcap_filter_func import *
 from filter_defines import OneHrPrcntButton, Browser 
 
 pyautogui.FAILSAFE=True 
-FILTER_REFRESH_FLAG=False; 
-SLEEP_TIME_BETWEEN_PRESS_FAST=0.5
+#FILTER_REFRESH_FLAG=False; 
 
-counter=0 
+#counter=0 
 
 #pyautogui.displayMousePosition()
 
@@ -35,13 +34,13 @@ while True:
 
     time.sleep(60)                  # refresh "1h %" every 60 seconds 
     OneHrPrcntRefresh() 
-    if FILTER_REFRESH_FLAG:
-        # RefreshFilter()           # need to write... 
-        FILTER_REFRESH_FLAG=False
+    #if FILTER_REFRESH_FLAG:
+        #RefreshFilter()           # need to write... 
+        #FILTER_REFRESH_FLAG=False
 
-    counter=counter+1
-    if counter==5: 
-        FILTER_REFRESH_FLAG=True 
+    #counter=counter+1
+    #if counter==5: 
+        #FILTER_REFRESH_FLAG=True 
 
 
 
