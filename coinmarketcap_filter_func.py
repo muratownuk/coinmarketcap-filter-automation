@@ -20,7 +20,7 @@ def filter_startup():
 
     # crypto.com is the exchange we are focused on as that is our exchange. 
     pyautogui.click(ExchangeButton.x, ExchangeButton.y)
-    pyautogui.write("cry", interval=SLEEP_TIME_BETWEEN_PRESS_FAST)
+    pyautogui.write("cry")
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_FAST)
 
     pyautogui.click(CryptoComExchangeButton.x, CryptoComExchangeButton.y)
@@ -28,7 +28,7 @@ def filter_startup():
 
     # filter out low 24h volume coins (rug-pull potential)
     pyautogui.click(Volume24hMinButton.x, Volume24hMinButton.y)
-    pyautogui.write("1000000", interval=SLEEP_TIME_BETWEEN_PRESS_FAST)
+    pyautogui.write("1000000")
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_FAST)
 
     pyautogui.click(ApplyButton.x, ApplyButton.y)  
