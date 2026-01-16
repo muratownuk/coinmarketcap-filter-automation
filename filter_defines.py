@@ -37,5 +37,13 @@ class ApplyButton:
     y=825 
 
 class OneHrPrcntButton:
-    x=875 
+    x=870
     y=375 
+
+class TwentyFourHrPrcntButton:
+    x=955 
+    y=375
+
+
+
+
