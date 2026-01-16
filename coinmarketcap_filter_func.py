@@ -35,9 +35,9 @@ def filter_startup():
 
 def OneHrPrcntRefresh():
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y)
-    time.sleep(SLEEP_TIME_BETWEEN_PRESS_MID)
+    time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW)
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y) 
-    time.sleep(SLEEP_TIME_BETWEEN_PRESS_MID) 
+    time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW) 
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y) 
 
 
