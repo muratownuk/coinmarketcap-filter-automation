@@ -1,17 +1,14 @@
 import pyautogui, time 
 from coinmarketcap_filter_func import * 
-from filter_defines import OneHrPrcntButton, Browser 
 
 pyautogui.FAILSAFE=True 
-#FILTER_REFRESH_FLAG=False; 
 
-#counter=0 
-
-#pyautogui.displayMousePosition()
-
+# only one can be true (used as selection)
+ONEHR_REFRESH_FLAG=True    
+TWENTYFOURHR_REFRESH_FLAG=False 
 
 # set up of coinmarketcap filter 
-time.sleep(5)                       # 30 second delay for start-up load time.
+time.sleep(10)                      # 10 second delay for start-up load time.
 
 pyautogui.click(Browser.x, Browser.y)
 
@@ -21,36 +18,26 @@ filter_startup()
 
 time.sleep(3)
 
-pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y) 
+if ONEHR_REFRESH_FLAG:
+    pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y) 
 
+if TWENTYFOURHR_REFRESH_FLAG:
+    pyautogui.click(TwentyFourHrPrcntButton.x, TwentyFourHrPrcntButton.y) 
 
-# market prices update every 60 seconds; so we will use that time as the 
-# reference for how frequently we want to update the 1h change. 
+# market prices update every 60 seconds; so we will use 30 seconds time as the 
+# reference for how frequently we want to update the XXh change. 
 
-# refresh 1hr change market (descending) every 60 seconds. 
-# refresh filter every 5 min. 
+# refresh XXhr change market (descending) every 30 seconds. 
 
 while True:
 
-    time.sleep(60)                  # refresh "1h %" every 60 seconds 
-    OneHrPrcntRefresh() 
-    #if FILTER_REFRESH_FLAG:
-        #RefreshFilter()           # need to write... 
-        #FILTER_REFRESH_FLAG=False
+    time.sleep(30)                  # refresh "XXh %" every 30 seconds 
+    
+    if ONEHR_REFRESH_FLAG:
+        OneHrPrcntRefresh() 
 
-    #counter=counter+1
-    #if counter==5: 
-        #FILTER_REFRESH_FLAG=True 
-
-
-
-
-
-
-
-
-
-
+    if TWENTYFOURHR_REFRESH_FLAG:
+        TwentyFourHrPrcntRefresh() 
 
 
 
