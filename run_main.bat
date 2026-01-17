@@ -1,1 +1,4 @@
-"run-main" 
+cd "....directory...\coinmarketcap-filter-automation" 
+
+python main.py 
+
