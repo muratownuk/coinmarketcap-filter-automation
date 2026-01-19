@@ -24,14 +24,14 @@ if ONEHR_REFRESH_FLAG:
 if TWENTYFOURHR_REFRESH_FLAG:
     pyautogui.click(TwentyFourHrPrcntButton.x, TwentyFourHrPrcntButton.y) 
 
-# market prices update every 60 seconds; so we will use 30 seconds time as the 
+# market prices update every 60 seconds; so we will use 60 seconds time as the 
 # reference for how frequently we want to update the XXh change. 
 
-# refresh XXhr change market (descending) every 30 seconds. 
+# refresh XXhr change market (descending) every 60 seconds. 
 
 while True:
 
-    time.sleep(30)                  # refresh "XXh %" every 30 seconds 
+    time.sleep(60)                  # refresh "XXh %" every 60 seconds 
     
     if ONEHR_REFRESH_FLAG:
         OneHrPrcntRefresh() 
