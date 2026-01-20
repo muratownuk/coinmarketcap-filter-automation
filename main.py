@@ -4,8 +4,8 @@ from coinmarketcap_filter_func import *
 pyautogui.FAILSAFE=True 
 
 # only one can be true (used as selection)
-ONEHR_REFRESH_FLAG=True    
-TWENTYFOURHR_REFRESH_FLAG=False 
+ONEHR_REFRESH_FLAG=False    
+TWENTYFOURHR_REFRESH_FLAG=True 
 
 # set up of coinmarketcap filter 
 time.sleep(10)                      # 10 second delay for start-up load time.

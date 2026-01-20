@@ -7,6 +7,7 @@ SLEEP_TIME_BETWEEN_PRESS_MID=1
 SLEEP_TIME_BETWEEN_PRESS_SLOW=2
 
 VOLUME24H=True
+PRICECHANGE24H=True
 Vol24hMin=FiveHundredThousand
 
 ## Functions ## 
@@ -29,6 +30,12 @@ def filter_startup():
 
     pyautogui.click(CryptoComExchangeButton.x, CryptoComExchangeButton.y)
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_FAST)
+
+    # filter out negative % 24h volume coins 
+    if PRICECHANGE24H:
+        pyautogui.click(PriceChange24hMinButton.x, PriceChange24hMinButton.y)
+        pyautogui.write(str(3)) # filter in 3% and up 
+        time.sleep(SLEEP_TIME_BETWEEN_PRESS_FAST) 
 
     # filter out low 24h volume coins (rug-pull potential)
     if VOLUME24H:

@@ -24,6 +24,14 @@ class CryptoComExchangeButton:
     x=1200 
     y=500 
 
+class PriceChange24hMinButton:
+    x=1000 
+    y=585
+
+class PriceChange24hMaxButton:
+    x=1100 
+    y=585
+
 class Volume24hMinButton:
     x=1000 
     y=635 
