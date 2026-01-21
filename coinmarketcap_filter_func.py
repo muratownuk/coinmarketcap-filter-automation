@@ -34,7 +34,7 @@ def filter_startup():
     # filter out negative % 24h volume coins 
     if PRICECHANGE24H:
         pyautogui.click(PriceChange24hMinButton.x, PriceChange24hMinButton.y)
-        pyautogui.write(str(3)) # filter in 3% and up 
+        pyautogui.write(str(5)) # filter in 5% and up 
         time.sleep(SLEEP_TIME_BETWEEN_PRESS_FAST) 
 
     # filter out low 24h volume coins (rug-pull potential)
