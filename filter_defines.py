@@ -46,11 +46,11 @@ class ApplyButton:
 
 class OneHrPrcntButton:
     x=870
-    y=375 
+    y=365 
 
 class TwentyFourHrPrcntButton:
     x=955 
-    y=375
+    y=365
 
 
 
