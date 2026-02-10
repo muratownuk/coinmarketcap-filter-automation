@@ -16,7 +16,7 @@ pyautogui.press('F11')              # full-screen chrome browser
 
 filter_startup() 
 
-time.sleep(3)
+time.sleep(5)
 
 if ONEHR_REFRESH_FLAG:
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y) 
