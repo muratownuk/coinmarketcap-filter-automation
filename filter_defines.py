@@ -52,6 +52,3 @@ class TwentyFourHrPrcntButton:
     x=955 
     y=365
 
-
-
-

@@ -8,7 +8,9 @@ ONEHR_REFRESH_FLAG=False
 TWENTYFOURHR_REFRESH_FLAG=True 
 
 # set up of coinmarketcap filter 
-time.sleep(10)                      # 10 second delay for start-up load time.
+time.sleep(5)                      # 5 second delay for start-up load time.
+
+print("\nCoinMarketCap filter Initiating...")
 
 pyautogui.click(Browser.x, Browser.y)
 
@@ -29,6 +31,8 @@ if TWENTYFOURHR_REFRESH_FLAG:
 
 # refresh XXhr change market (descending) every 60 seconds. 
 
+print("\nCoinMarketCap filter Running...\n")
+
 while True:
 
     time.sleep(60)                  # refresh "XXh %" every 60 seconds 
@@ -39,6 +43,7 @@ while True:
     if TWENTYFOURHR_REFRESH_FLAG:
         TwentyFourHrPrcntRefresh() 
 
+    print("-", end=" ")
 
 
 
