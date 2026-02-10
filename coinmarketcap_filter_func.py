@@ -15,7 +15,7 @@ Vol24hMin=FiveHundredThousand
 ## Functions ## 
 def filter_startup():
 
-    time.sleep(SLEEP_TIME_BETWEEN_PRESS_MID) 
+    time.sleep(SLEEP_TIME_BETWEEN_PRESS_XSLOW) 
 
      # essential filter start-up #
     pyautogui.click(FiltersButton.x, FiltersButton.y)
@@ -54,7 +54,6 @@ def filter_startup():
     pyautogui.moveTo(ApplyButton.x, ApplyButton.y, \
                      duration=SLEEP_TIME_BETWEEN_PRESS_SLOW)
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW)
-    #pyautogui.doubleClick()
     pyautogui.drag(1, -1, duration=SLEEP_TIME_BETWEEN_PRESS_XSLOW)
 
 def OneHrPrcntRefresh():
