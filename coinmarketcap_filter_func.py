@@ -2,9 +2,10 @@ import pyautogui, time
 from filter_defines import *
 from defines import * 
 
+SLEEP_TIME_BETWEEN_PRESS_XFAST=0.25
 SLEEP_TIME_BETWEEN_PRESS_FAST=0.5
 SLEEP_TIME_BETWEEN_PRESS_MID=1
-SLEEP_TIME_BETWEEN_PRESS_SLOW=2
+SLEEP_TIME_BETWEEN_PRESS_SLOW=2.5
 SLEEP_TIME_BETWEEN_PRESS_XSLOW=5  
 
 VOLUME24H=True
@@ -51,10 +52,10 @@ def filter_startup():
 
     # this procedure of click apply is needed for slower PCs due to response 
     pyautogui.moveTo(ApplyButton.x, ApplyButton.y, \
-                     duration=SLEEP_TIME_BETWEEN_PRESS_MID)
+                     duration=SLEEP_TIME_BETWEEN_PRESS_SLOW)
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW)
-    pyautogui.click()
-    pyautogui.drag(1, -1, duration=SLEEP_TIME_BETWEEN_PRESS_MID)
+    pyautogui.doubleClick()
+    #pyautogui.drag(1, -1, duration=SLEEP_TIME_BETWEEN_PRESS_XSLOW)
 
 def OneHrPrcntRefresh():
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y)
