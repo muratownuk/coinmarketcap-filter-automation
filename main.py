@@ -18,7 +18,7 @@ pyautogui.press('F11')              # full-screen chrome browser
 
 filter_startup() 
 
-time.sleep(7.5)                      # wait for filter to adjust (7.5s) 
+time.sleep(7.5)                     # wait for filter to adjust (7.5s) 
 
 if ONEHR_REFRESH_FLAG:
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y) 
@@ -31,19 +31,24 @@ if TWENTYFOURHR_REFRESH_FLAG:
 
 # refresh XXhr change market (descending) every 60 seconds. 
 
-print("\nCoinMarketCap filter Running...\n")
+print("\nCoinMarketCap filter Running...\n") 
 
-while True:
+start_time=time.time() 
 
-    time.sleep(60)                  # refresh "XXh %" every 60 seconds 
-    
-    if ONEHR_REFRESH_FLAG:
-        OneHrPrcntRefresh() 
+try: 
+    while True:
 
-    if TWENTYFOURHR_REFRESH_FLAG:
-        TwentyFourHrPrcntRefresh() 
+        time.sleep(60)                  # refresh "XXh %" every 60 seconds 
+        
+        if ONEHR_REFRESH_FLAG:
+            OneHrPrcntRefresh() 
 
-    print("-", end=" ", flush=True)
+        if TWENTYFOURHR_REFRESH_FLAG:
+            TwentyFourHrPrcntRefresh() 
 
+        print("-", end=" ", flush=True)
 
-
+except KeyboardInterrupt: 
+    # Program run-time in minutes (also counts dashes from start)
+    end_time=int(time.time()-start_time)//60 
+    input(f"\n\nProgram run-time {end_time} min.\nPress any key to exit...") 
