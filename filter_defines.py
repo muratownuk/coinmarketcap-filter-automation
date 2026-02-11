@@ -52,3 +52,9 @@ class TwentyFourHrPrcntButton:
     x=955 
     y=365
 
+class AboveAltCoinSeasonArea:
+    x=1100
+    y=90 
+
+
+    
