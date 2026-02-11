@@ -8,7 +8,7 @@ ONEHR_REFRESH_FLAG=False
 TWENTYFOURHR_REFRESH_FLAG=True 
 
 # set up of coinmarketcap filter 
-time.sleep(5)                      # 5 second delay for start-up load time.
+time.sleep(5)                       # 5 second delay for start-up load time.
 
 print("\nCoinMarketCap filter Initiating...")
 
@@ -18,7 +18,7 @@ pyautogui.press('F11')              # full-screen chrome browser
 
 filter_startup() 
 
-time.sleep(5)
+time.sleep(7.5)                      # wait for filter to adjust (7.5s) 
 
 if ONEHR_REFRESH_FLAG:
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y) 
