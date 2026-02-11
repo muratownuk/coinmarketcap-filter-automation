@@ -43,7 +43,7 @@ while True:
     if TWENTYFOURHR_REFRESH_FLAG:
         TwentyFourHrPrcntRefresh() 
 
-    print("-", end=" ")
+    print("-", end=" ", flush=True)
 
 
 
