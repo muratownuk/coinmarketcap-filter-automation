@@ -34,11 +34,12 @@ if TWENTYFOURHR_REFRESH_FLAG:
 print("\nCoinMarketCap filter Running...\n") 
 
 start_time=time.time() 
+count=0                             # dash counter 
 
 try: 
     while True:
 
-        time.sleep(60)                  # refresh "XXh %" every 60 seconds 
+        time.sleep(60)              # refresh "XXh %" every 60 seconds 
         
         if ONEHR_REFRESH_FLAG:
             OneHrPrcntRefresh() 
@@ -47,8 +48,10 @@ try:
             TwentyFourHrPrcntRefresh() 
 
         print("-", end=" ", flush=True)
+        count+=1                    # increment dash count 
 
 except KeyboardInterrupt: 
     # Program run-time in minutes (also counts dashes from start)
     end_time=int(time.time()-start_time)//60 
-    input(f"\n\nProgram run-time {end_time} min.\nPress any key to exit...") 
+    print(f"\n\nDash count: {count}")
+    input(f"Program run-time {end_time} min.\nPress any key to exit...") 
