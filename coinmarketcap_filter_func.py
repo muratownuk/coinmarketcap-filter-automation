@@ -57,7 +57,6 @@ def filter_startup():
     pyautogui.drag(1, -1, duration=SLEEP_TIME_BETWEEN_PRESS_MID)
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_MID)
     pyautogui.click(FiltersButton.x, FiltersButton.y) 
-    #pyautogui.doubleClick(AboveAltCoinSeasonArea.x, AboveAltCoinSeasonArea.y) 
 
 def OneHrPrcntRefresh():
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y)
@@ -72,6 +71,4 @@ def TwentyFourHrPrcntRefresh():
     pyautogui.click(TwentyFourHrPrcntButton.x, TwentyFourHrPrcntButton.y)
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW)
     pyautogui.click(TwentyFourHrPrcntButton.x, TwentyFourHrPrcntButton.y)
-
-
 
