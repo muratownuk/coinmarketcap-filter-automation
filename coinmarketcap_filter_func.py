@@ -19,13 +19,13 @@ def filter_startup():
 
      # essential filter start-up #
     pyautogui.click(FiltersButton.x, FiltersButton.y)
-    time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW)
-
-    pyautogui.click(VisibleCoinsButton.x, VisibleCoinsButton.y)
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_MID)
 
-    pyautogui.click(ShowAllButton.x, ShowAllButton.y)
+    pyautogui.click(VisibleCoinsButton.x, VisibleCoinsButton.y)
     time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW)
+
+    pyautogui.click(ShowAllButton.x, ShowAllButton.y)
+    time.sleep(SLEEP_TIME_BETWEEN_PRESS_MID)
 
     # crypto.com is the exchange we are focused on as that is our exchange. 
     pyautogui.click(ExchangeButton.x, ExchangeButton.y)
@@ -53,8 +53,8 @@ def filter_startup():
     # this procedure of click apply is needed for slower PCs due to response 
     pyautogui.moveTo(ApplyButton.x, ApplyButton.y, \
                      duration=SLEEP_TIME_BETWEEN_PRESS_SLOW)
-    time.sleep(SLEEP_TIME_BETWEEN_PRESS_SLOW)
-    pyautogui.drag(1, -1, duration=SLEEP_TIME_BETWEEN_PRESS_XSLOW)
+    time.sleep(SLEEP_TIME_BETWEEN_PRESS_MID)
+    pyautogui.drag(1, -1, duration=SLEEP_TIME_BETWEEN_PRESS_SLOW)
 
 def OneHrPrcntRefresh():
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y)
