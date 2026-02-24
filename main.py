@@ -1,7 +1,7 @@
 import pyautogui, time 
 from coinmarketcap_filter_func import * 
 
-pyautogui.FAILSAFE=True 
+pyautogui.FAILSAFE=False 
 
 # only one can be true (used as selection)
 ONEHR_REFRESH_FLAG=False    
