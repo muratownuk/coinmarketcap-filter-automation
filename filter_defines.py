@@ -1,8 +1,8 @@
 # Objects 
 
 class Browser:
-    x=1000
-    y=25
+    x=1100
+    y=20
 
 class FiltersButton: 
     x=1745 
@@ -51,10 +51,5 @@ class OneHrPrcntButton:
 class TwentyFourHrPrcntButton:
     x=955 
     y=365
-
-class AboveAltCoinSeasonArea:
-    x=1100
-    y=90 
-
 
     
