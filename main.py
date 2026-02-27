@@ -1,4 +1,4 @@
-import pyautogui, time 
+import pyautogui, time, traceback  
 from coinmarketcap_filter_func import * 
 
 pyautogui.FAILSAFE=False 
@@ -7,51 +7,79 @@ pyautogui.FAILSAFE=False
 ONEHR_REFRESH_FLAG=False    
 TWENTYFOURHR_REFRESH_FLAG=True 
 
+LOG_FILE="log.txt" 
+
+def log_error(): 
+    with open(LOG_FILE, "a") as f:
+        f.write("\n=============================\n") 
+        f.write(time.strftime("%Y-%m-%d %H:%M:%S\n"))
+        f.write(traceback.format_exc) 
+
+def focus_browser(): 
+    pyautogui.click(Browser.x, Browser.y) 
+    time.sleep(SLEEP_TIME_FAST) 
+
 # set up of coinmarketcap filter 
-time.sleep(5)                       # 5 second delay for start-up load time.
+time.sleep(SLEEP_TIME_XSLOW)        # 5 second delay for start-up load time.
 
-print("\nCoinMarketCap filter Initiating...")
+def Run():
+    print("\nCoinMarketCap filter Initiating...")
 
-pyautogui.click(Browser.x, Browser.y)
+    focus_browser()
+    pyautogui.press('F11')              # full-screen chrome browser 
 
-pyautogui.press('F11')              # full-screen chrome browser 
+    filter_startup() 
 
-filter_startup() 
+    focus_browser() 
 
-time.sleep(7.5)                     # wait for filter to adjust (7.5s) 
+    time.sleep(SLEEP_TIME_XSLOW)        # wait for filter to adjust  
 
-if ONEHR_REFRESH_FLAG:
-    pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y) 
+    if ONEHR_REFRESH_FLAG:
+        pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y) 
 
-if TWENTYFOURHR_REFRESH_FLAG:
-    pyautogui.click(TwentyFourHrPrcntButton.x, TwentyFourHrPrcntButton.y) 
+    if TWENTYFOURHR_REFRESH_FLAG:
+        pyautogui.click(TwentyFourHrPrcntButton.x, TwentyFourHrPrcntButton.y) 
 
-# market prices update every 60 seconds; so we will use 60 seconds time as the 
-# reference for how frequently we want to update the XXh change. 
+    print("\nCoinMarketCap filter Running...\n")
 
-# refresh XXhr change market (descending) every 60 seconds. 
+    # market prices update every 60 seconds; so we will use 60s time as the 
+    # reference for how frequently we want to update the XXh change. 
 
-print("\nCoinMarketCap filter Running...\n") 
+    # refresh XXhr change market (descending) every 60 seconds. 
 
-start_time=time.time() 
-count=0                             # dash counter 
-
-try: 
+    start_time=time.time() 
+    count=0                             # dash counter 
+    
     while True:
+        try:
+            time.sleep(60)              # refresh "XXh %" every 60 seconds 
 
-        time.sleep(60)              # refresh "XXh %" every 60 seconds 
-        
-        if ONEHR_REFRESH_FLAG:
-            OneHrPrcntRefresh() 
+            focus_browser()             # re-focus before interaction  
+                
+            if ONEHR_REFRESH_FLAG:
+                OneHrPrcntRefresh() 
 
-        if TWENTYFOURHR_REFRESH_FLAG:
-            TwentyFourHrPrcntRefresh() 
+            if TWENTYFOURHR_REFRESH_FLAG:
+                TwentyFourHrPrcntRefresh() 
 
-        print("-", end=" ", flush=True)
-        count+=1                    # increment dash count 
+            print("-", end=" ", flush=True)
+            count+=1                    # increment dash count 
 
-except KeyboardInterrupt: 
-    # Program run-time in minutes (also counts dashes from start)
-    end_time=int(time.time()-start_time)//60 
-    print(f"\n\nDash count: {count}")
-    input(f"Program run-time {end_time} min.\nPress any key to exit...") 
+        except KeyboardInterrupt: 
+            # Program run-time in minutes (also counts dashes from start)
+            end_time=int(time.time()-start_time)//60 
+            print(f"\n\nDash count: {count}")
+            input(f"Program run-time: {end_time}m\nPress any key to exit...") 
+            break 
+
+        except Exception:
+            log_error()
+            print("\nRecovered from error, restarting in 5s...")
+            time.sleep(SLEEP_TIME_XSLOW)    # 5s sleep before restarting 
+
+if __name__=="__main__":
+    Run() 
+
+
+
+    
