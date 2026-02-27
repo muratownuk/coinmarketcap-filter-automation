@@ -56,7 +56,6 @@ def filter_startup():
     time.sleep(SLEEP_TIME_MID)
     pyautogui.drag(1, -1, duration=SLEEP_TIME_MID)
     time.sleep(SLEEP_TIME_MID)
-    pyautogui.click(FiltersButton.x, FiltersButton.y) 
 
 def OneHrPrcntRefresh():
     pyautogui.click(OneHrPrcntButton.x, OneHrPrcntButton.y)
