@@ -19,11 +19,11 @@ def focus_browser():
     pyautogui.click(Browser.x, Browser.y) 
     time.sleep(SLEEP_TIME_FAST) 
 
-# set up of coinmarketcap filter 
-time.sleep(SLEEP_TIME_XSLOW)        # 5 second delay for start-up load time.
-
 def Run():
     print("\nCoinMarketCap filter Initiating...")
+
+    # set up of coinmarketcap filter 
+    time.sleep(SLEEP_TIME_XSLOW)        # 5 second delay for start-up time.
 
     focus_browser()
     pyautogui.press('F11')              # full-screen chrome browser 
@@ -46,24 +46,36 @@ def Run():
     # reference for how frequently we want to update the XXh change. 
 
     # refresh XXhr change market (descending) every 60 seconds. 
+    interval=60 
 
     start_time=time.time() 
+    next_run=start_time+interval 
+
     count=0                             # dash counter 
-    
+
     while True:
         try:
-            time.sleep(60)              # refresh "XXh %" every 60 seconds 
+            now=time.time() 
 
-            focus_browser()             # re-focus before interaction  
-                
-            if ONEHR_REFRESH_FLAG:
-                OneHrPrcntRefresh() 
+            if now>=next_run:
 
-            if TWENTYFOURHR_REFRESH_FLAG:
-                TwentyFourHrPrcntRefresh() 
+                focus_browser()             # re-focus before interaction  
+                    
+                if ONEHR_REFRESH_FLAG:
+                    OneHrPrcntRefresh() 
 
-            print("-", end=" ", flush=True)
-            count+=1                    # increment dash count 
+                if TWENTYFOURHR_REFRESH_FLAG:
+                    TwentyFourHrPrcntRefresh() 
+
+                print("-", end=" ", flush=True)
+                count+=1                    # increment dash count 
+
+                next_run+=interval          # schedule next run 
+            
+            # sleep until next_run 
+            sleep_time=next_run-time.time() 
+            if sleep_time>0:
+                time.sleep(sleep_time) 
 
         except KeyboardInterrupt: 
             # Program run-time in minutes (also counts dashes from start)
@@ -77,9 +89,7 @@ def Run():
             print("\nRecovered from error, restarting in 5s...")
             time.sleep(SLEEP_TIME_XSLOW)    # 5s sleep before restarting 
 
+
 if __name__=="__main__":
     Run() 
-
-
-
     
